@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.articulo;
 
 /**
  *
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "controladorarticulo", urlPatterns = {"/controladorarticulo"})
 public class controladorarticulo extends HttpServlet {
 
+    articulo objarticulo = new articulo();  
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,18 +34,39 @@ public class controladorarticulo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet controladorarticulo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet controladorarticulo at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String accion = request.getParameter("btnAccion");
+            
+            if (accion.equals ("Insertar")){
+            
+                 int codigoarticulo = Integer.parseInt(request.getParameter("codigoarticulo"));
+                 String nombrearticulo = request.getParameter("nombrearticulo");
+                 int cantidadarticulo = Integer.parseInt(request.getParameter("cantidadarticulo"));
+                 int precioarticulo = Integer.parseInt(request.getParameter("precioarticulo"));
+                 String grupoarticulo = request.getParameter("grupoarticulo");
+                 
+                 objarticulo.setcodigoarticulo(codigoarticulo);
+                 objarticulo.setnombrearticulo(nombrearticulo);
+                 objarticulo.setcantidadarticulo(cantidadarticulo);
+                 objarticulo.setprecioarticulo(precioarticulo);
+                 objarticulo.setgrupoarticulo (grupoarticulo);
+                 
+                 objarticulo.creararticulo();
+                 
+                 String mensaje = "<html> <body>"+
+                         "<script type='text/javaScript'>" + 
+                         " alert('el articulo fue insertado de manera correcta');" +
+                         " window.location.href='index.jsp'; "+
+                         "</script> </body> </html>";
+                 
+                 out.println(mensaje);
+                 
+            }
+        }
+        catch(Exception error){
+             System.out.println("Error en el controlador:"+error);
         }
     }
 

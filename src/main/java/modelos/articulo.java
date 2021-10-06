@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author Niwde Ziur
@@ -23,50 +25,73 @@ public class articulo {
     
     //ENCAPSULAR
 
-    public int getCodigoarticulo() {
+    public int getcodigoarticulo() {
         return codigoarticulo;
     }
 
-    public void setCodigoarticulo(int codigoarticulo) {
+    public void setcodigoarticulo(int codigoarticulo) {
         this.codigoarticulo = codigoarticulo;
     }
 
-    public String getNombrearticulo() {
+    public String getnombrearticulo() {
         return nombrearticulo;
     }
 
-    public void setNombrearticulo(String nombrearticulo) {
+    public void setnombrearticulo(String nombrearticulo) {
         this.nombrearticulo = nombrearticulo;
     }
 
-    public int getCantidadarticulo() {
+    public int getcantidadarticulo() {
         return cantidadarticulo;
     }
 
-    public void setCantidadarticulo(int cantidadarticulo) {
+    public void setcantidadarticulo(int cantidadarticulo) {
         this.cantidadarticulo = cantidadarticulo;
     }
 
-    public int getPrecioarticulo() {
+    public int getprecioarticulo() {
         return precioarticulo;
     }
 
-    public void setPrecioarticulo(int precioarticulo) {
+    public void setprecioarticulo(int precioarticulo) {
         this.precioarticulo = precioarticulo;
     }
 
-    public String getGrupoarticulo() {
+    public String getgrupoarticulo() {
         return grupoarticulo;
     }
 
-    public void setGrupoarticulo(String grupoarticulo) {
+    public void setgrupoarticulo(String grupoarticulo) {
         this.grupoarticulo = grupoarticulo;
     }
     
     
     
     //METODOS
-    public void creararticulo(){}
+    public void creararticulo(){
+        conexion objConector = new conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql="INSERT INTO articulo VALUES (?,?,?,?,?);";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.codigoarticulo);
+            stmt.setString(2, this.nombrearticulo);
+            stmt.setInt(3, this.cantidadarticulo);
+            stmt.setInt(4, this.precioarticulo);
+            stmt.setString(5,this.grupoarticulo);
+            
+            stmt.execute();
+            
+            objConector.desconectar();
+            
+            
+            
+        } catch (Exception error) {
+            System.out.println("Error en el modelo:"+error);
+        }
+    }
     public void consultararticulo (){}
     public void listararticulo (){}
     public void actualizararticulo (){}

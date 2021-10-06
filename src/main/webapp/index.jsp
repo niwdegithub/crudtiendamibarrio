@@ -18,7 +18,7 @@
         
         
         <section>
-            <form method="POST" action="controlarticulo">
+            <form method="POST" action="controladorarticulo">
                 <div class="container">
                     <div class="row">
                         <div class="col">
@@ -31,19 +31,19 @@
                                 <label for="floatingInput">Nombre del articulo: </label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="cantidadProducto" placeholder="name">
+                                <input type="number" class="form-control" id="floatingInput" name="cantidadarticulo" placeholder="name">
                                 <label for="floatingInput">Cantidad : </label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="precioProducto" placeholder="name">
+                                <input type="number" class="form-control" id="floatingInput" name="precioarticulo" placeholder="name">
                                 <label for="floatingInput">Precio del articulo: </label>
                             </div>
                             
                             <label>Grupo del articulo: </label>
                             
-                            <select class="form-select" multiple aria-label="multiple select example" name="categoriaProducto">
+                            <select class="form-select" multiple aria-label="multiple select example" name="grupoarticulo">
                                 <option value="Granos">Granos</option>
                                 <option value="Abarrotes">Abarrotes</option>
                                 <option value="Licores">Licores</option>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="row">
                         <center>
-                            <button class="btn btn-outline-success bg-opacity-10 btnSize" name="btnAccion" value="Insertar">Insertar Producto</button>
+                            <button class="btn btn-outline-success bg-opacity-10 btnSize" name="btnAccion" value="Insertar">Insertar articulo</button>
                         </center>
                     </div>
                 </div>
@@ -105,16 +105,27 @@
                         
                         </td>
                     </tr>
-                    
-                    
-                    
-                    
+                                    
+                                        
                 </tbody>
                 </table>
             
             
         </section>
          
+        
+        //CODIFICACION DE INSERTAR - MODELO 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
