@@ -25,6 +25,20 @@
                            
             </header>
         
+        <%
+        
+           String codigoStr = request.getParameter("codigoarticulo");
+           int codigoInt = Integer.parseInt(codigoStr);
+           controladorarticulo ctrarticulo = new controladorarticulo();
+           ArrayList <articulo> consultaarticulo = new ArrayList<>();
+           consultaarticulo = ctrarticulo.consultar(codigoInt);
+           
+                   
+         %>
+        
+        
+        
+        
         
         
         <section>
@@ -33,21 +47,21 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="codigoarticulo" placeholder="name">
+                                <input type="text" class="form-control" id="floatingInput" name="codigoarticulo" placeholder="name" value="<%out.println(consultaarticulo.get(0).getcodigoarticulo());%>" disabled="">
                                 <label for="floatingInput">Codigo del articulo : </label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="nombrearticulo" placeholder="name">
+                                <input type="text" class="form-control" id="floatingInput" name="nombrearticulo" placeholder="name" value="<%out.println(consultaarticulo.get(0).getnombrearticulo());%>">
                                 <label for="floatingInput">Nombre del articulo: </label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="cantidadarticulo" placeholder="name">
+                                <input type="text" class="form-control" id="floatingInput" name="cantidadarticulo" placeholder="name" value="<%out.println(consultaarticulo.get(0).getcantidadarticulo());%>">
                                 <label for="floatingInput">Cantidad : </label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="precioarticulo" placeholder="name">
+                                <input type="text" class="form-control" id="floatingInput" name="precioarticulo" placeholder="name" value="<%out.println(consultaarticulo.get(0).getprecioarticulo());%>">
                                 <label for="floatingInput">Precio del articulo: </label>
                             </div>
                             
@@ -89,31 +103,7 @@
                 </thead>
                 <tbody>
                     
-                    <%
-                       ArrayList <articulo>listaarticulo =new ArrayList<>();
-                       controladorarticulo ctrarticulo = new controladorarticulo();
-                       listaarticulo = ctrarticulo.listar();
-                       
-                       for(int i=0; i<listaarticulo.size(); i++ ){
-                        
-                    %>
-                    
-                    <tr>
-                        <th scope= "row"> <%=listaarticulo.get(i).getcodigoarticulo()%> </th>
-                        <td> <%=listaarticulo.get(i).getnombrearticulo()%> </td>
-                        <td> <%=listaarticulo.get(i).getcantidadarticulo()%> </td>
-                        <td> <%=listaarticulo.get(i).getprecioarticulo()%> </td>
-                        <td> <%=listaarticulo.get(i).getgrupoarticulo()%> </td>
-                        <td> 
-                        
-                        <a href="actualizar.jsp?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-primary">Actualizar</button></a>
-                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-danger">Eliminar</button></a>
-                        
-                        </td>
-                    </tr>
-                    
-                                   
-                    <%}%>             
+                                 
                      </tbody>
                 </table>
             
