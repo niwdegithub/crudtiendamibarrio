@@ -6,6 +6,7 @@
 package modelos;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -93,7 +94,23 @@ public class articulo {
         }
     }
     public void consultararticulo (){}
-    public void listararticulo (){}
+    public ResultSet listararticulo (){
+               conexion objconector = new conexion();
+               objconector.conectar();
+               
+               try {
+                   String sql = "SELECT * FROM articulo";
+                   PreparedStatement stmt;
+                   stmt = objconector.conn.prepareStatement(sql);
+                   ResultSet consulta = stmt.executeQuery();
+                   objconector.desconectar();
+                   return consulta;
+                   
+               } catch (Exception error){
+                   System.out.println("Error modelo:"+error);
+               }
+               return null;
+    }
     public void actualizararticulo (){}
     public void eliminararticulo (){}
     

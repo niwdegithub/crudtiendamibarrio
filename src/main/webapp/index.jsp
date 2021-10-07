@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="controladores.controladorarticulo"%>
+<%@page import="modelos.articulo"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -78,43 +81,46 @@
                   </tr>
                 </thead>
                 <tbody>
+                    
+                    <%
+                       ArrayList<articulo>listaarticulo =new ArrayList<>();
+                       controladorarticulo ctrarticulo = new controladorarticulo();
+                       listaarticulo = ctrarticulo.listar();
+                       
+                       for(int i=0; i<listaarticulo.size(); i++ ){
+                        
+                                         
+                    
+                    
+                    
+                    
+                    
+                    
+                    %>
+                    
                     <tr>
-                        <th scope= "row"> 1 </th>
-                        <td> mark </td>
-                        <td> otto </td>
-                        <td> otto </td>
-                        <td> otto </td>
+                        <th scope= "row"> <%=listaarticulo.get(i).getcodigoarticulo()%> </th>
+                        <td> <%=listaarticulo.get(i).getnombrearticulo()%> </td>
+                        <td> <%=listaarticulo.get(i).getcantidadarticulo()%> </td>
+                        <td> <%=listaarticulo.get(i).getprecioarticulo()%> </td>
+                        <td> <%=listaarticulo.get(i).getgrupoarticulo()%> </td>
                         <td> 
                         
-                        <button class="btn btn-primary">Actualizar</button>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <a href="actualizar.jsp?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-primary">Actualizar</button></a>
+                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-danger">Eliminar</button></a>
                         
                         </td>
                     </tr>
                     
-                     <tr>
-                        <th scope= "row"> 1 </th>
-                        <td> mark </td>
-                        <td> otto </td>
-                        <td> otto </td>
-                        <td> otto </td>
-                        <td> 
-                        
-                        <button class="btn btn-primary">Actualizar</button>
-                        <button class="btn btn-danger">Eliminar</button>
-                        
-                        </td>
-                    </tr>
-                                    
-                                        
-                </tbody>
+                                   
+                    <%}%>             
+                     </tbody>
                 </table>
             
             
         </section>
          
         
-        //CODIFICACION DE INSERTAR - MODELO 
         
         
         

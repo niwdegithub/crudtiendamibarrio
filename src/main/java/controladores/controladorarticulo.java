@@ -7,6 +7,10 @@ package controladores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import static java.time.Clock.system;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -69,6 +73,33 @@ public class controladorarticulo extends HttpServlet {
              System.out.println("Error en el controlador:"+error);
         }
     }
+    
+    public ArrayList listar(){
+        
+    try {
+        ResultSet consulta = objarticulo.listararticulo();
+        ArrayList<articulo> listararticulo = new ArrayList<>();
+        
+        while(consulta.next()){
+            objarticulo = new articulo();
+            objarticulo.setcodigoarticulo(consulta.getInt(1));
+            objarticulo.setnombrearticulo(consulta.getString(2));
+            objarticulo.setcantidadarticulo(consulta.getInt(3));
+            objarticulo.setprecioarticulo(consulta.getInt(4));
+            objarticulo.setgrupoarticulo(consulta.getString(5));
+            listararticulo.add(objarticulo);
+            
+        }
+        return listararticulo;
+        
+    } catch (Exception error){
+        System.out.println("error de controlador"+error);
+    }
+        return null;
+    
+    }
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
