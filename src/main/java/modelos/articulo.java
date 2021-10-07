@@ -93,7 +93,27 @@ public class articulo {
             System.out.println("Error en el modelo:"+error);
         }
     }
-    public void consultararticulo (){}
+    public ResultSet consultararticulo (){
+    
+       conexion objconector = new conexion();
+               objconector.conectar();
+               
+               try {
+                   String sql = "SELECT * FROM articulo WHERE codigoarticulo=?;";
+                   PreparedStatement stmt;
+                   stmt = objconector.conn.prepareStatement(sql);
+                   stmt.setInt(1,this.codigoarticulo);
+                   ResultSet consulta = stmt.executeQuery();
+                   objconector.desconectar();
+                   return consulta;
+                   
+               } catch (Exception error){
+                   System.out.println("Error modelo:"+error);
+               }
+               return null;
+    
+    
+    }
     public ResultSet listararticulo (){
                conexion objconector = new conexion();
                objconector.conectar();

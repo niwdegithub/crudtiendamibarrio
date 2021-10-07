@@ -100,6 +100,33 @@ public class controladorarticulo extends HttpServlet {
     }
     
     
+    public ArrayList consultar(int codigoarticulo){
+        
+    try {
+        objarticulo.setcodigoarticulo(codigoarticulo);
+        ResultSet consulta = objarticulo.consultararticulo();
+        ArrayList<articulo> listararticulo = new ArrayList<>();
+        
+        while(consulta.next()){
+            objarticulo = new articulo();
+            objarticulo.setcodigoarticulo(consulta.getInt(1));
+            objarticulo.setnombrearticulo(consulta.getString(2));
+            objarticulo.setcantidadarticulo(consulta.getInt(3));
+            objarticulo.setprecioarticulo(consulta.getInt(4));
+            objarticulo.setgrupoarticulo(consulta.getString(5));
+            listararticulo.add(objarticulo);
+            
+        }
+        return listararticulo;
+        
+    } catch (Exception error){
+        System.out.println("error de controlador"+error);
+    }
+        return null;
+    
+    }
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

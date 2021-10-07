@@ -89,13 +89,6 @@
                        
                        for(int i=0; i<listaarticulo.size(); i++ ){
                         
-                                         
-                    
-                    
-                    
-                    
-                    
-                    
                     %>
                     
                     <tr>
