@@ -77,7 +77,7 @@
                     <th scope="col">Cantidad</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Acción</th>
+                    <th scope="col">Accion</th>
                   </tr>
                 </thead>
                 <tbody>

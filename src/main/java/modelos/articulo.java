@@ -131,7 +131,39 @@ public class articulo {
                }
                return null;
     }
-    public void actualizararticulo (){}
+    public void actualizararticulo (){
+    
+               conexion objConector = new conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql= "UPDATE articulo SET " +
+                          "nombrearticulo = ?, " +
+                          "cantidadarticulo = ?, " +
+                          "precioarticulo = ?, " +
+                          "grupoarticulo = ? " +
+                          "WHERE codigoarticulo = ?; ";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(5, this.codigoarticulo);
+            stmt.setString(1, this.nombrearticulo);
+            stmt.setInt(2, this.cantidadarticulo);
+            stmt.setInt(3, this.precioarticulo);
+            stmt.setString(4,this.grupoarticulo);
+            
+            stmt.execute();
+            
+            objConector.desconectar();
+            
+            
+            
+        } catch (Exception error) {
+            System.out.println("Error en el modelo:"+error);
+        }
+        
+        
+    
+    }
     public void eliminararticulo (){}
     
 }

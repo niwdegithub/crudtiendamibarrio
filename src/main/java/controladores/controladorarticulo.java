@@ -68,6 +68,35 @@ public class controladorarticulo extends HttpServlet {
                  out.println(mensaje);
                  
             }
+            
+            else if (accion.equals ("Actualizar")){
+                
+                int codigoarticulo = Integer.parseInt(request.getParameter("codigoarticulo"));
+                String nombrearticulo = request.getParameter("nombrearticulo"); 
+                int cantidadarticulo = Integer.parseInt(request.getParameter("cantidadarticulo"));
+                int precioarticulo = Integer.parseInt(request.getParameter("precioarticulo"));
+                String grupoarticulo = request.getParameter("grupoarticulo"); 
+                
+                objarticulo.setcodigoarticulo(codigoarticulo);
+                objarticulo.setnombrearticulo(nombrearticulo);
+                objarticulo.setcantidadarticulo(cantidadarticulo);
+                objarticulo.setprecioarticulo(precioarticulo);
+                objarticulo.setgrupoarticulo(grupoarticulo);
+                objarticulo.actualizararticulo();
+                
+                String mensaje = " <html> <body>"+
+                                 "<script type='text/javaScript'> "+
+                                 "  alert('Producto actualizado correctamente!!'); "+
+                                 "  window.location.href='index.jsp'; "+
+                                 "</script> </body> </html>"; 
+                
+                out.println(mensaje); 
+            
+            }
+                  
+            
+                                   
+            
         }
         catch(Exception error){
              System.out.println("Error en el controlador:"+error);
