@@ -14,9 +14,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/estilos/estilos.css" rel="stylesheet" type="text/css"/>
-        <title> Yo Amo a mi Tienda </title>
+        <title> Tienda Virtual Mi Barrio </title>
     </head>
-    <body>
+    <body background="assets/imagenes/pix.jpg">
+        
+        <center>    
+        <a href=index.jsp><img src="assets/imagenes/casa.png" style="height: 100px; width: 150px"></a>
+        <center/>
+        
         <%  
             String codigoStr = request.getParameter("codigoarticulo"); 
             int codigo = Integer.parseInt(codigoStr.toString());  
@@ -26,8 +31,8 @@
             
         %>
         
-        <div class="container text-center bg-info margen">
-            <h1> CRUD WEB JSP + BOOTSTRAP </h1>
+        <div class="container bg-primary bg-opacity-10 text-center margen">
+            <h1> Tienda Virtual Mi Barrio </h1>
         </div>
         
         <section>
@@ -57,24 +62,41 @@
                             <label>Categoria: </label>
                             <br>
                             <select class="form-select" multiple aria-label="multiple select example" name="grupoarticulo" required="">
-                                <option value="abarrotes">abarrotes</option>
+                                <option value="Granos">Granos</option>
+                                <option value="Abarrotes">Abarrotes</option>
+                                <option value="Licores">Licores</option>
+                                <option value="Frutas">Frutas</option>
+                                <option value="Verduras">Verduras</option>
                                 <option value="Lacteos">Lacteos</option>
-                                <option value="Aseo">Aseo</option>
+                                <option value="Carnicos">Carnicos</option>
                               </select>
                         </div>
+                              
                     </div>
+                             
                     <div class="row float-end">
                         <div class="col">
-                            <button class="btn btn-success btnSize" value="Actualizar" name="btnAccion">Actualizar Producto</button>
-                        </div>
+                                        
+                    <center>
+                            <button class="btn btn-outline-success bg-opacity-10 btnSize" name="btnAccion" value="Actualizar">Actualizar articulo</button>
+                    </center>      
                     </div>
+                    </div>
+                    
                 </div>          
             </form>
         </section>
+                                             
+                                                                    
+        <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+        
+        </body>
+        
+         <footer>
+            <div class="container bg-primary bg-opacity-10 text-center margen">
+                <center><h3> Develop by misión TIC 2021 </h3></center>
+            </div>
+        </footer> 
         
         
-        
-        
-        <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    </body>
 </html>

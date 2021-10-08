@@ -86,7 +86,7 @@ public class controladorarticulo extends HttpServlet {
                 
                 String mensaje = " <html> <body>"+
                                  "<script type='text/javaScript'> "+
-                                 "  alert('Producto actualizado correctamente!!'); "+
+                                 "  alert('articulo actualizado correctamente!!'); "+
                                  "  window.location.href='index.jsp'; "+
                                  "</script> </body> </html>"; 
                 
@@ -104,7 +104,7 @@ public class controladorarticulo extends HttpServlet {
                 
                 String mensaje = " <html> <body>"+
                                  "<script type='text/javaScript'> "+
-                                 "  alert('Producto eliminado correctamente!!'); "+
+                                 "  alert('articulo eliminado correctamente!!'); "+
                                  "  window.location.href='index.jsp'; "+
                                  "</script> </body> </html>"; 
                 

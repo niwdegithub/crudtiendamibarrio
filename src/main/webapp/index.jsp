@@ -9,12 +9,13 @@
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="assets/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-             
-        
+    <body background="assets/imagenes/pix.jpg">
+        <center>    
+        <a href=index.jsp><img src="assets/imagenes/casa.png" style="height: 100px; width: 150px"></a>
+        <center/>
         <script type="text/javascript">
             function confirmar(){
-                var respuesta = confirm("¿Desea eliminar el producto?"); 
+                var respuesta = confirm("¿Desea eliminar el articulo?"); 
                 if(respuesta === true){
                     return true; 
                 }
@@ -113,8 +114,8 @@
                         <td> <%=listaarticulo.get(i).getgrupoarticulo()%> </td>
                         <td> 
                         
-                        <a href="actualizar.jsp?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-primary">Actualizar</button></a>
-                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>&btnAccion=Eliminar"><button class="btn btn-danger" onclick="return confirmar();">Eliminar</button></a>
+                        <a href="actualizar.jsp?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-info">Actualizar</button></a>
+                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>&btnAccion=Eliminar"><button class="btn btn-dark" onclick="return confirmar();">Eliminar</button></a>
                         
                         </td>
                     </tr>
@@ -126,28 +127,8 @@
             
             
         </section>
-         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          
+       
             
         <footer>
             <div class="container bg-primary bg-opacity-10 text-center margen">
