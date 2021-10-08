@@ -94,7 +94,22 @@ public class controladorarticulo extends HttpServlet {
             
             }
                   
-            
+             else if (accion.equals("Eliminar")){
+                
+                int codigoarticulo = Integer.parseInt(request.getParameter("codigoarticulo"));
+                                
+                objarticulo.setcodigoarticulo(codigoarticulo);
+                
+                objarticulo.eliminararticulo();
+                
+                String mensaje = " <html> <body>"+
+                                 "<script type='text/javaScript'> "+
+                                 "  alert('Producto eliminado correctamente!!'); "+
+                                 "  window.location.href='index.jsp'; "+
+                                 "</script> </body> </html>"; 
+                
+               out.println(mensaje); 
+            }
                                    
             
         }

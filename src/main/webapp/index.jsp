@@ -10,7 +10,21 @@
         <link href="assets/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-               
+             
+        
+        <script type="text/javascript">
+            function confirmar(){
+                var respuesta = confirm("¿Desea eliminar el producto?"); 
+                if(respuesta === true){
+                    return true; 
+                }
+                else{
+                    return false; 
+                }
+            }
+        </script>
+             
+        
             <header>
             <div class="container bg-primary bg-opacity-10 text-center margen">
                 <h1> Tienda Virtual Mi Barrio</h1>
@@ -100,7 +114,7 @@
                         <td> 
                         
                         <a href="actualizar.jsp?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-primary">Actualizar</button></a>
-                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>"><button class="btn btn-danger">Eliminar</button></a>
+                        <a href="controladorarticulo?codigoarticulo=<%=listaarticulo.get(i).getcodigoarticulo()%>&btnAccion=Eliminar"><button class="btn btn-danger" onclick="return confirmar();">Eliminar</button></a>
                         
                         </td>
                     </tr>

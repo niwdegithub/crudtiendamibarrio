@@ -164,6 +164,29 @@ public class articulo {
         
     
     }
-    public void eliminararticulo (){}
+    public void eliminararticulo (){
     
+     conexion objconector = new conexion(); 
+        objconector.conectar();
+        
+        try {
+            
+            String sql = "DELETE FROM articulo " +
+                            "WHERE codigoarticulo = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objconector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.codigoarticulo);
+            
+            stmt.execute(); 
+            
+            objconector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en eliminar: "+error);
+    
+    
+    }
+    
+               
+        }
 }
